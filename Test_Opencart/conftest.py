@@ -3,6 +3,8 @@ from selenium.webdriver import chrome
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
+
+
 @pytest.fixture()
 def setup(browser):
 
@@ -34,4 +36,14 @@ def pytest_addoption(parser):
 def browser(request):
     return request.config.getoption("--browser")
 
+def pytest_html_report_title(report):
+    report.title = "Pytest HTML Report"
+
+#def pytest_configure(config):
+    # Add your custom build version here
+    #config.stash["Build Version"] = "1.0.0"
+
+def pytest_metadata(metadata):
+    # Add 'Build Version' to the report
+    metadata['Build Version'] = "4.0.0"
 
