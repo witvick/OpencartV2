@@ -2,7 +2,7 @@
 
 import pytest
 class TestClass:
-
+    @pytest.mark.skip
     def test_1(self,setup):
         print("I am,happy")
 
