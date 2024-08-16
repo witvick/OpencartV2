@@ -23,4 +23,3 @@ class Testlogin:
         self.actual_title = self.driver.title
         self.driver.close()
         assert self.actual_title == "My Account – Automation Practice Site"
-
