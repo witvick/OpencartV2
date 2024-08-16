@@ -7,8 +7,17 @@ from selenium.webdriver.common.by import By
 class RegisterPage:
 
 #Locators
+#register mail
     box_email_xpath="//*[@id='reg_email']"
+#login email
+    box_log_email_xpath="//*[@id='username']"
+#login PAssword
+    box_log_password_xpath="//*[@id='password']"
+#login button
+    button_login_xpath="//*[@id='customer_login']/div[1]/form/p[3]/input[3]"
+#Register password
     box_password_xpath="//*[@id='reg_password']"
+#register button
     button_register_xpath="//*[@id='customer_login']/div[2]/form/p[3]/input[3]"
 
 #Constructor
@@ -32,3 +41,16 @@ class RegisterPage:
         Reg.click()
 
 
+    def loginEmail(self, email):
+        lEmail = self.driver.find_element(By.XPATH, self.box_log_email_xpath)
+        lEmail.clear()
+        lEmail.send_keys(email)
+
+    def loginPassword(self, password):
+        lPass = self.driver.find_element(By.XPATH, self.box_log_password_xpath)
+        lPass.clear()
+        lPass.send_keys(password)
+
+    def login(self):
+        log = self.driver.find_element(By.XPATH, self.button_login_xpath)
+        log.click()
