@@ -2,11 +2,22 @@
 
 import pytest
 class TestClass:
-    @pytest.mark.run(order=2)
-    def test_1(self,setup):
-        print("I am,happy")
+    @pytest.mark.dependency()
+    def test_SignUp(self,setup):
+        print("Sign In")
+        assert True
 
-    @pytest.mark.run(order=1)
-    def test_2(self,setup):
+    @pytest.mark.dependency(depends=['test_SignUp'])
+    def test_loginByPhone(self,setup):
+        print("Phone Login")
+        assert False
 
-        print("i, Am good")
+    @pytest.mark.dependency(depends=['test_loginByPhone'])
+    def test_loginByEmail(self, setup):
+        print("Email login")
+        assert False
+
+    @pytest.mark.dependency(depends=['test_loginByEmail'])
+    def test_loginByGoogle(self, setup):
+        print("Google Login")
+        assert True
