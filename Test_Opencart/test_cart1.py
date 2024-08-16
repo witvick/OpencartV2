@@ -1,5 +1,3 @@
-#"C:\Users\MR.WICK\PycharmProjects\pythonProject1\chromedriver-win64\chromedriver.exe"
-
 import pytest
 class TestClass:
 
